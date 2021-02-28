@@ -10,8 +10,12 @@
         <item name="android:textSize">@dimen/button_text_size</item>
     </style>
 
+    <style name="button_style.landscape">
+        <item name="android:textSize">@dimen/button_text_size.landscape</item>
+    </style>
+
     <style name="button_row_style">
-        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:gravity">center</item>
     </style>

@@ -1,47 +1,70 @@
 package com.example.calculator;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.Stack;
 
-public class Calculator {
-    private final Stack<Double> numbers;
-    private final Stack<Operator> operators;
+public class Calculator implements Parcelable {
+    private final Stack<Double> mNumbers;
+    private final Stack<Operator> mOperators;
+    private final MainActivity mHandler;
 
-    public Calculator() {
-        numbers = new Stack<>();
-        operators = new Stack<>();
+    public Calculator(MainActivity handler) {
+        mNumbers = new Stack<>();
+        mOperators = new Stack<>();
+        mHandler = handler;
     }
 
+    protected Calculator(Parcel in) {
+        mNumbers = (Stack<Double>) in.readValue(Stack.class.getClassLoader());
+        mOperators = (Stack<Operator>) in.readValue(Stack.class.getClassLoader());
+        mHandler = (MainActivity) in.readValue(MainActivity.class.getClassLoader());
+    }
+
+    public static final Creator<Calculator> CREATOR = new Creator<Calculator>() {
+        @Override
+        public Calculator createFromParcel(Parcel in) {
+            return new Calculator(in);
+        }
+
+        @Override
+        public Calculator[] newArray(int size) {
+            return new Calculator[size];
+        }
+    };
+
     public void pushNumber(double num) {
-        numbers.push(num);
+        mNumbers.push(num);
     }
 
     public void pushOperator(Operator operator) throws ArithmeticException {
         executePreviousIsPossible(operator);
-        operators.push(operator);
+        mOperators.push(operator);
     }
 
     private void executePreviousIsPossible(Operator nextOperator) throws ArithmeticException {
-        if (operators.size() == 0)
+        if (mOperators.size() == 0)
             return;
 
-        Operator operatorToExecute = operators.peek();
+        Operator operatorToExecute = mOperators.peek();
 
         switch (operatorToExecute.getTitle()) {
             case "+":
             case "-":
             case "*":
             case "/": {
-                if (numbers.size() < 2)
+                if (mNumbers.size() < 2)
                     return;
 
                 if (operatorToExecute.getPriority() < nextOperator.getPriority())
                     return;
 
-                double rightOperand = numbers.pop();
-                double leftOperand = numbers.pop();
+                double rightOperand = mNumbers.pop();
+                double leftOperand = mNumbers.pop();
                 double result = execute(leftOperand, rightOperand, operatorToExecute);
-                numbers.push(result);
-                operators.pop();
+                mNumbers.push(result);
+                mOperators.pop();
             }
         }
     }
@@ -58,8 +81,10 @@ public class Calculator {
                 return left * right;
 
             case "/":
-                if (right == 0)
-                    throw new ArithmeticException("Division by zero!");
+                if (right == 0) {
+                    mHandler.showAlert("Division by zero!");
+                    return 0;
+                }
 
                 return left / right;
 
@@ -69,12 +94,30 @@ public class Calculator {
     }
 
     public double compute() {
-        executePreviousIsPossible(new Operator("="));
-        return numbers.pop();
+        while (mOperators.size() != 0) {
+            double rightOperand = mNumbers.pop();
+            double leftOperand = mNumbers.pop();
+            double result = execute(leftOperand, rightOperand, mOperators.pop());
+            mNumbers.push(result);
+        }
+
+        return mNumbers.pop();
     }
 
     public void clearStacks() {
-        numbers.clear();
-        operators.clear();
+        mNumbers.clear();
+        mOperators.clear();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeValue(mNumbers);
+        dest.writeValue(mOperators);
+        dest.writeValue(mHandler);
     }
 }

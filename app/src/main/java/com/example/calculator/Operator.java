@@ -1,39 +1,40 @@
 package com.example.calculator;
 
 public class Operator {
-    private final String title;
-    private final byte priority;
+    private final String mTitle;
+    private final byte mPriority;
 
     public Operator(String title) {
-        this.title = title;
+        mTitle = title;
+
         switch (title) {
             case "=": {
-                priority = 0;
+                mPriority = 0;
                 break;
             }
 
             case "+":
             case "-": {
-                priority = 1;
+                mPriority = 1;
                 break;
             }
 
             case "*":
             case "/": {
-                priority = 2;
+                mPriority = 2;
                 break;
             }
 
             default:
-                priority = 3;
+                mPriority = 3;
         }
     }
 
     public String getTitle() {
-        return title;
+        return mTitle;
     }
 
     public byte getPriority() {
-        return priority;
+        return mPriority;
     }
 }

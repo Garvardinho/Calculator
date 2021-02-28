@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/inputField"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:textAlignment="viewEnd"
+        android:textColor="@color/white"
+        android:textSize="@dimen/result_text_size" />
+
+    <TextView
+        android:id="@+id/resultField"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textAlignment="viewEnd"
+        android:textColor="@color/white"
+        android:textSize="@dimen/result_text_size" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:shrinkColumns="*">
+
+        <TableRow style="@style/button_row_style">
+
+            <Button
+                android:id="@+id/button_clear"
+                style="@style/button_style.landscape"
+                android:text="@string/button_clear" />
+
+            <Button
+                android:id="@+id/button_bracket"
+                style="@style/button_style.landscape"
+                android:text="@string/button_bracket" />
+
+            <Button
+                android:id="@+id/button_percent"
+                style="@style/button_style.landscape"
+                android:text="@string/button_percent" />
+
+            <Button
+                android:id="@+id/button_div"
+                style="@style/button_style.landscape"
+                android:text="@string/button_div" />
+
+            <Button
+                android:id="@+id/button_mul"
+                style="@style/button_style.landscape"
+                android:text="@string/button_mul" />
+
+            <Button
+                android:id="@+id/button_minus"
+                style="@style/button_style.landscape"
+                android:text="@string/button_minus" />
+
+            <Button
+                android:id="@+id/button_plus"
+                style="@style/button_style.landscape"
+                android:text="@string/button_plus" />
+
+            <Button
+                android:id="@+id/button_negative"
+                style="@style/button_style.landscape"
+                android:text="@string/button_negative" />
+
+            <Button
+                android:id="@+id/button_point"
+                style="@style/button_style.landscape"
+                android:text="@string/button_point" />
+
+            <Button
+                android:id="@+id/button_equal"
+                style="@style/button_style.landscape"
+                android:backgroundTint="@color/button_equal_color"
+                android:text="@string/button_equal" />
+        </TableRow>
+
+        <TableRow style="@style/button_row_style">
+
+            <Button
+                android:id="@+id/button_1"
+                style="@style/button_style.landscape"
+                android:text="@string/button_1" />
+
+            <Button
+                android:id="@+id/button_2"
+                style="@style/button_style.landscape"
+                android:text="@string/button_2" />
+
+            <Button
+                android:id="@+id/button_3"
+                style="@style/button_style.landscape"
+                android:text="@string/button_3" />
+
+            <Button
+                android:id="@+id/button_4"
+                style="@style/button_style.landscape"
+                android:text="@string/button_4" />
+
+            <Button
+                android:id="@+id/button_5"
+                style="@style/button_style.landscape"
+                android:text="@string/button_5" />
+
+            <Button
+                android:id="@+id/button_6"
+                style="@style/button_style.landscape"
+                android:text="@string/button_6" />
+
+            <Button
+                android:id="@+id/button_7"
+                style="@style/button_style.landscape"
+                android:text="@string/button_7" />
+
+            <Button
+                android:id="@+id/button_8"
+                style="@style/button_style.landscape"
+                android:text="@string/button_8" />
+
+            <Button
+                android:id="@+id/button_9"
+                style="@style/button_style.landscape"
+                android:text="@string/button_9" />
+
+            <Button
+                android:id="@+id/button_0"
+                style="@style/button_style.landscape"
+                android:text="@string/button_0" />
+        </TableRow>
+
+    </TableLayout>
+</LinearLayout>
