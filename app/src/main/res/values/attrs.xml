@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="button_color" type="reference|color"/>
+    <attr name="button_equal_color" type="reference|color"/>
+</resources>
