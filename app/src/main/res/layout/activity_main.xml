@@ -1,18 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    android:orientation="vertical">
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <TextView
+        android:id="@+id/inputField"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/cow" />
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:textAlignment="viewEnd"
+        android:textColor="@color/white"
+        android:textSize="@dimen/result_text_size" />
+
+    <TextView
+        android:id="@+id/resultField"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textAlignment="viewEnd"
+        android:textColor="@color/white"
+        android:textSize="@dimen/result_text_size" />
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom">
+        android:layout_height="0dp"
+        android:layout_weight="4">
 
         <TableRow style="@style/button_row_style">
 
@@ -126,9 +140,9 @@
             <Button
                 android:id="@+id/button_equal"
                 style="@style/button_style"
-                android:text="@string/button_equal"
-                android:backgroundTint="@color/button_equal_color"/>
+                android:backgroundTint="@color/button_equal_color"
+                android:text="@string/button_equal" />
         </TableRow>
 
     </TableLayout>
-</FrameLayout>
+</LinearLayout>
