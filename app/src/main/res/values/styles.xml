@@ -3,7 +3,7 @@
 
     <style name="text_view_style">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center|end</item>
         <item name="android:padding">10dp</item>
         <item name="android:textAlignment">gravity</item>
@@ -17,7 +17,7 @@
         <item name="android:layout_margin">5dp</item>
         <item name="android:backgroundTint">?attr/button_color</item>
         <item name="android:textSize">@dimen/button_text_size</item>
-        <item name="cornerRadius">50dp</item>
+        <item name="cornerRadius">20dp</item>
     </style>
 
     <style name="button_equal_style" parent="@style/button_style">
