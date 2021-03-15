@@ -1,51 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background_color"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/inputField"
-        android:layout_width="match_parent"
+        style="@style/text_view_style"
         android:layout_height="0dp"
-        android:layout_weight="3"
-        android:textAlignment="viewEnd"
-        android:textColor="@color/white"
-        android:textSize="@dimen/result_text_size" />
+        app:layout_constraintBottom_toTopOf="@+id/resultField"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/resultField"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:textAlignment="viewEnd"
-        android:textColor="@color/white"
-        android:textSize="@dimen/result_text_size" />
+        style="@style/text_view_style"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/inputField" />
 
     <TableLayout
+        android:id="@+id/tableLayout"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="4">
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultField">
 
         <TableRow style="@style/button_row_style">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_clear"
                 style="@style/button_style"
                 android:text="@string/button_clear" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_bracket"
                 style="@style/button_style"
                 android:text="@string/button_bracket" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_percent"
                 style="@style/button_style"
                 android:text="@string/button_percent" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_div"
                 style="@style/button_style"
                 android:text="@string/button_div" />
@@ -53,22 +55,22 @@
 
         <TableRow style="@style/button_row_style">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_7"
                 style="@style/button_style"
                 android:text="@string/button_7" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_8"
                 style="@style/button_style"
                 android:text="@string/button_8" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_9"
                 style="@style/button_style"
                 android:text="@string/button_9" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_mul"
                 style="@style/button_style"
                 android:text="@string/button_mul" />
@@ -76,22 +78,22 @@
 
         <TableRow style="@style/button_row_style">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_4"
                 style="@style/button_style"
                 android:text="@string/button_4" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_5"
                 style="@style/button_style"
                 android:text="@string/button_5" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_6"
                 style="@style/button_style"
                 android:text="@string/button_6" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_minus"
                 style="@style/button_style"
                 android:text="@string/button_minus" />
@@ -99,22 +101,22 @@
 
         <TableRow style="@style/button_row_style">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_1"
                 style="@style/button_style"
                 android:text="@string/button_1" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_2"
                 style="@style/button_style"
                 android:text="@string/button_2" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_3"
                 style="@style/button_style"
                 android:text="@string/button_3" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_plus"
                 style="@style/button_style"
                 android:text="@string/button_plus" />
@@ -122,27 +124,26 @@
 
         <TableRow style="@style/button_row_style">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_negative"
                 style="@style/button_style"
                 android:text="@string/button_negative" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_0"
                 style="@style/button_style"
                 android:text="@string/button_0" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_point"
                 style="@style/button_style"
                 android:text="@string/button_point" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_equal"
-                style="@style/button_style"
-                android:backgroundTint="@color/button_equal_color"
+                style="@style/button_equal_style"
                 android:text="@string/button_equal" />
         </TableRow>
 
     </TableLayout>
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

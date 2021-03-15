@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="button_style_landscape" parent="@style/button_style">
+        <item name="android:textSize">@dimen/button_text_size_landscape</item>
+    </style>
+</resources>
