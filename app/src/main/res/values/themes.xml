@@ -13,4 +13,10 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Calculator" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:backgroundTint">@color/background_color</item>
+        <item name="button_color">@color/button_color</item>
+        <item name="button_equal_color">@color/button_equal_color</item>
+    </style>
 </resources>

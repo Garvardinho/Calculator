@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <style name="text_view_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center|end</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textAlignment">gravity</item>
+        <item name="android:textSize">@dimen/text_size</item>
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+
     <style name="button_style">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_margin">5dp</item>
-        <item name="cornerRadius">50dp</item>
-        <item name="android:backgroundTint">@color/button_color</item>
-        <item name="fontFamily">sans-serif-thin</item>
+        <item name="android:backgroundTint">?attr/button_color</item>
         <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="cornerRadius">20dp</item>
     </style>
 
-    <style name="button_style.landscape">
-        <item name="android:textSize">@dimen/button_text_size.landscape</item>
+    <style name="button_equal_style" parent="@style/button_style">
+        <item name="android:backgroundTint">?attr/button_equal_color</item>
     </style>
 
     <style name="button_row_style">

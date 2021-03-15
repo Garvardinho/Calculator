@@ -38,12 +38,12 @@ public class Calculator implements Parcelable {
         mNumbers.push(num);
     }
 
-    public void pushOperator(Operator operator) throws ArithmeticException {
+    public void pushOperator(Operator operator) {
         executePreviousIsPossible(operator);
         mOperators.push(operator);
     }
 
-    private void executePreviousIsPossible(Operator nextOperator) throws ArithmeticException {
+    private void executePreviousIsPossible(Operator nextOperator) {
         if (mOperators.size() == 0)
             return;
 
@@ -53,9 +53,18 @@ public class Calculator implements Parcelable {
             case "+":
             case "-":
             case "*":
-            case "/": {
+            case "/":
+            case ".": {
                 if (mNumbers.size() < 2)
                     return;
+
+                if (mOperators.peek().getTitle().equals(".")) {
+                    double fractionalPart = mNumbers.pop();
+                    double wholePart = mNumbers.pop();
+
+                    double number = Double.parseDouble((int) wholePart + "." + (int) fractionalPart);
+                    mNumbers.push(number);
+                }
 
                 if (operatorToExecute.getPriority() < nextOperator.getPriority())
                     return;
@@ -65,11 +74,13 @@ public class Calculator implements Parcelable {
                 double result = execute(leftOperand, rightOperand, operatorToExecute);
                 mNumbers.push(result);
                 mOperators.pop();
+                break;
             }
+
         }
     }
 
-    private double execute(double left, double right, Operator operator) throws ArithmeticException {
+    private double execute(double left, double right, Operator operator) {
         switch (operator.getTitle()) {
             case "+":
                 return left + right;

@@ -24,44 +24,34 @@ public class MainActivity extends AppCompatActivity {
 
         mCalculator = new Calculator(this);
         mStringData = new ScreenStringFieldsData();
-        ArrayList<Button> buttons = getButtons();
 
         mStringData.setInput(findViewById(R.id.inputField));
         mStringData.setResult(findViewById(R.id.resultField));
         View.OnClickListener buttonListener = v -> buttonPressedHandler(v.getId());
-        setOnClickListenerToAll(buttons, buttonListener);
+        setOnClickListenerToAll(buttonListener);
     }
 
-    private ArrayList<Button> getButtons() {
-        ArrayList<Button> buttons = new ArrayList<>();
-        buttons.add(findViewById(R.id.button_0));
-        buttons.add(findViewById(R.id.button_1));
-        buttons.add(findViewById(R.id.button_2));
-        buttons.add(findViewById(R.id.button_3));
-        buttons.add(findViewById(R.id.button_4));
-        buttons.add(findViewById(R.id.button_5));
-        buttons.add(findViewById(R.id.button_6));
-        buttons.add(findViewById(R.id.button_7));
-        buttons.add(findViewById(R.id.button_8));
-        buttons.add(findViewById(R.id.button_9));
-        buttons.add(findViewById(R.id.button_point));
-        buttons.add(findViewById(R.id.button_plus));
-        buttons.add(findViewById(R.id.button_percent));
-        buttons.add(findViewById(R.id.button_negative));
-        buttons.add(findViewById(R.id.button_mul));
-        buttons.add(findViewById(R.id.button_minus));
-        buttons.add(findViewById(R.id.button_equal));
-        buttons.add(findViewById(R.id.button_div));
-        buttons.add(findViewById(R.id.button_clear));
-        buttons.add(findViewById(R.id.button_bracket));
-
-        return buttons;
-    }
-
-    private void setOnClickListenerToAll(ArrayList<Button> buttons, View.OnClickListener listener) {
-        for (Button button : buttons) {
-            button.setOnClickListener(listener);
-        }
+    private void setOnClickListenerToAll(View.OnClickListener listener) {
+        findViewById(R.id.button_0).setOnClickListener(listener);
+        findViewById(R.id.button_1).setOnClickListener(listener);
+        findViewById(R.id.button_2).setOnClickListener(listener);
+        findViewById(R.id.button_3).setOnClickListener(listener);
+        findViewById(R.id.button_4).setOnClickListener(listener);
+        findViewById(R.id.button_5).setOnClickListener(listener);
+        findViewById(R.id.button_6).setOnClickListener(listener);
+        findViewById(R.id.button_7).setOnClickListener(listener);
+        findViewById(R.id.button_8).setOnClickListener(listener);
+        findViewById(R.id.button_9).setOnClickListener(listener);
+        findViewById(R.id.button_point).setOnClickListener(listener);
+        findViewById(R.id.button_plus).setOnClickListener(listener);
+        findViewById(R.id.button_percent).setOnClickListener(listener);
+        findViewById(R.id.button_negative).setOnClickListener(listener);
+        findViewById(R.id.button_mul).setOnClickListener(listener);
+        findViewById(R.id.button_minus).setOnClickListener(listener);
+        findViewById(R.id.button_equal).setOnClickListener(listener);
+        findViewById(R.id.button_div).setOnClickListener(listener);
+        findViewById(R.id.button_clear).setOnClickListener(listener);
+        findViewById(R.id.button_bracket).setOnClickListener(listener);
     }
 
     private void buttonPressedHandler(int id) {
